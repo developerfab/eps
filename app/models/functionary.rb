@@ -1,0 +1,2 @@
+class Functionary < User
+end
