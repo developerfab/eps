@@ -12,10 +12,10 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+*.swp
 /log/*
 !/log/.keep
 /tmp
 /bin
 .env
-*.swp
 .rspec

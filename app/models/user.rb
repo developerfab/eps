@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :email, :document, uniqueness: true
 
   belongs_to :doctor
+  belongs_to :cites
 end
