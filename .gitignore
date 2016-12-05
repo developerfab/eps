@@ -17,4 +17,5 @@
 /tmp
 /bin
 .env
+*.swp
 .rspec

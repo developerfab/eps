@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   validates :email, :document, uniqueness: true
+
+  belongs_to :doctor
 end

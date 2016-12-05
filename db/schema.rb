@@ -86,8 +86,10 @@ ActiveRecord::Schema.define(version: 20161204164047) do
     t.string   "phone"
     t.integer  "tutor_id"
     t.integer  "cite_id"
+    t.integer  "doctor_id"
   end
 
+  add_index "users", ["doctor_id"], name: "index_users_on_doctor_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["tutor_id"], name: "index_users_on_tutor_id", using: :btree
