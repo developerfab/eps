@@ -1,8 +1,15 @@
 source 'https://rubygems.org'
 
+gem 'bson_ext'
+gem "cancan"
 gem 'devise'
+gem 'devise_token_auth'
 gem 'pg', '~> 0.15'
 gem "haml-rails", "~> 0.9"
+gem 'mongoid' 
+gem 'omniauth'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'simple_form'
 
 gem 'rails', '4.2.4'
 gem 'thor', '0.19.1'

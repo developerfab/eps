@@ -3,8 +3,7 @@ require 'rails_helper'
 feature 'Sign up patient' do
   context "when an user visit the login page" do
     it "the user can register in the platform" do
-      visit root_path
-      click_link "Registrate"
+      visit new_user_registration_path
 
       expect(page).to have_content("Registro como paciente")
       fill_in "Nombre", with: "Carlos"
