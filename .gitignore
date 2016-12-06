@@ -16,6 +16,5 @@
 /log/*
 !/log/.keep
 /tmp
-/bin
 .env
 .rspec

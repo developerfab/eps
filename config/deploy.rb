@@ -4,7 +4,7 @@ lock '3.6.1'
 set :application, 'my_app_name'
 set :repo_url, 'git@github.com:fab48/eps.git'
 
-set :deploy_to, '/var/www/eps'
+set :deploy_to, '/home/deploy/eps'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
