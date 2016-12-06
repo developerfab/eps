@@ -5,4 +5,5 @@ class Patient < User
     self.type ||= :patient
   end
 
+  has_many :cites
 end

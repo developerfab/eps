@@ -1,5 +1,6 @@
 class Api::UsersController < Api::SiteController
   before_action :authenticate_user!, only: [:update]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
     response = {}

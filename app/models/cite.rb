@@ -1,4 +1,4 @@
 class Cite < ActiveRecord::Base
-  has_one :doctor
-  has_one :user
+  belongs_to :doctor
+  belongs_to :patient
 end
