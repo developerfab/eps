@@ -11,6 +11,8 @@ class Api::UsersController < Api::SiteController
       response = create_doctor(params)
     elsif type == "functionary"
       response = create_functionary(params)
+    elsif type == "admin"
+      response = create_admin(params)
     end
 
     respond_to do |format|
@@ -75,6 +77,20 @@ class Api::UsersController < Api::SiteController
     else
       @functionary = Functionary.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document])
       if @functionary.persisted?
+        response = {status: "ok", message: "usuario registrado exitosamente" }
+      else
+        response = {status: "error", message: "usuario no pudo ser creado" }
+      end
+    end
+  end
+
+  def create_admin(params)
+    @admin = Admin.find_by(email: params[:email])
+    if @admin
+      response = {status: "error", message: "usuario ya registrado previamente" }
+    else
+      @admin = Admin.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document])
+      if @admin.persisted?
         response = {status: "ok", message: "usuario registrado exitosamente" }
       else
         response = {status: "error", message: "usuario no pudo ser creado" }
