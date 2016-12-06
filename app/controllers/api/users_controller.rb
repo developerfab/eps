@@ -2,13 +2,20 @@ class Api::UsersController < Api::SiteController
   before_action :authenticate_user!, only: [:update]
   skip_before_action :verify_authenticity_token, only: [:create]
 
+  def index
+    @users = User.all
+    respond_to do |format|
+      format.json {render layout: false}
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     if @user
       response = {name: @user.name, last_name: @user.last_name, phone: @user.phone, document: @user.document, gender: @user.gender, birthdate: @user.birthdate, email: @user.email}
     end
     respond_to do |format|
-      format.json {render json: response}
+      format.json {render response}
     end
   end
 
