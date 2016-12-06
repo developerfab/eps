@@ -20,6 +20,24 @@ Dirección:
 ```
 http://direccion_ip/api/v1/auth/
 ```
+## Registro de usuario administrador(PETICION POST)
+Parametros:
+```
+{ email: "doctor@email.com", password: "12345678", password_confirmation: "12345678", document: "321321", type: "admin" }
+```
+Dirección:
+```
+http://direccion_ip/api/v1/auth/
+```
+## Registro de usuario funcionario(PETICION POST)
+Parametros:
+```
+{ email: "doctor@email.com", password: "12345678", password_confirmation: "12345678", document: "321321", type: "functionary" }
+```
+Dirección:
+```
+http://direccion_ip/api/v1/auth/
+```
 ## Inicio de sesion (PETICION POST)
 
 Parametros:
