@@ -1,4 +1,11 @@
 class Api::CitesController < Api::SiteController
+  def index
+    @cites = Cite.all
+    respond_to do |format|
+      format.json {render layout: false}
+    end
+  end
+
   def create
     params.permit!
     @user = Patient.find(params[:patient_id])
