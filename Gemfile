@@ -28,6 +28,7 @@ group :test do
   gem 'capybara'
   gem "chromedriver-helper"
   gem "database_cleaner"
+  gem 'factory_girl_rails'
   gem 'rspec', '~> 3.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
@@ -41,6 +42,7 @@ group :development, :test do
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do

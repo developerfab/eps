@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Sign up patient' do
   context "when an user visit the login page" do
     it "the user send post petition", type: :request do
-      params = { email: "test@email.com", password: "12345678", password_confirmation: "12345678", document: "123123", type: "patient"}
+      params = { email: "test@email.com", password: "12345678", password_confirmation: "12345678", document: "123123", type: "patient", name: "Carlos", last_name: "Moreno", "gender": "MALE", "birthdate": "1990-12-12", phone: "5555555"}
       post "/api/v1/auth", params.to_json, { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
       expect(response.status).to eq(200)
       user = Patient.last

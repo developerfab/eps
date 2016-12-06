@@ -39,7 +39,7 @@ class Api::UsersController < Api::SiteController
     if @user
       response = {status: "error", message: "usuario ya registrado previamente" }
     else
-      @user = Patient.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document])
+      @user = Patient.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document], name: params[:name], last_name: params[:last_name], gender: params[:gender], birthdate: params[:birthdate].to_datetime, phone: params[:phone])
       if @user.persisted?
         response = {status: "ok", message: "usuario registrado exitosamente" }
       else

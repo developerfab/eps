@@ -5,7 +5,7 @@ Este es un proyecto desarrollado en ruby on rails para el manejo y administracio
 ## Registro de usuario paciente (PETICION POST)
 Parametros:
 ```
-{ email: "example@email.com", password: "password", password_confirmation: "password", type: "patient"}
+{ email: email, password: password, password_confirmation: password_confirmation, document: document, name: name, last_name: last_name, gender: gender, birthdate: birthdate, phone: phone)
 ```
 Dirección:
 ```
