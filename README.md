@@ -63,3 +63,13 @@ Dirección:
 ```
 http://direccion_ip/api/v1/cites
 ```
+## Crear servicio
+```
+params = { 
+  name: "FONOAUDIOLOGIA" 
+}
+```
+Dirección:
+```
+http://direccion_ip/api/v1/services
+```
