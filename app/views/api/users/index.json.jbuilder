@@ -1,1 +1,1 @@
-json.users @users, :name, :last_name, :document, :birthdate, :gender, :phone, :type
+json.users @users, :id, :name, :last_name, :document, :birthdate, :gender, :phone, :type

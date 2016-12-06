@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :cites
       resources :services
       resources :doctors
+      resources :cites_patients
+      resources :cites_doctors
     end
   end
 end
