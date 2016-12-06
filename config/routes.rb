@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: [:update, :create, :show, :index]
       resources :cites
       resources :services
+      resources :doctors
     end
   end
 end

@@ -1,4 +1,12 @@
 class Api::ServicesController < Api::SiteController
+
+  def index
+    @services = Service.all
+    respond_to do |format|
+      format.json {render layout: false}
+    end
+  end
+
   def create
     params.permit!
     @service = Service.find_by(name: params[:name])
