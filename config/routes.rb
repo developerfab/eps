@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     scope :v1, defaults: {format: :json} do
       mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks], controllers: { sessions: 'api/overrides/sessions', 'registrations': 'api/users'}
-      resources :users, only: [:update, :create]
+      resources :users, only: [:update, :create, :show]
       resources :cites
       resources :services
     end
