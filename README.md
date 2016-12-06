@@ -30,3 +30,18 @@ Dirección:
 ```
 http://direccion_ip/api/v1/auth/sign_in
 ```
+
+## Pedir cita(PETICION POST)
+### Se debe estar logeado para esta peticion
+```
+params = {
+                  patient_id: patient_id,
+                  doctor_id: doctor_id,⋅
+                  date_cite: "2016-12-12 10:00",
+                  authorized: boolean(true o false)
+      }
+```
+Dirección:
+```
+http://direccion_ip/api/v1/cites
+```
