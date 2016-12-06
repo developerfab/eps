@@ -40,7 +40,6 @@ class Api::UsersController < Api::SiteController
 
   def update
     user = User.find(params[:id])
-
     respond_to do |format|
       if user.uuid.eql?(params[:uuid])
         format.json {render json: {status: "ok", message: "uuid ya regitrado previamente"} }

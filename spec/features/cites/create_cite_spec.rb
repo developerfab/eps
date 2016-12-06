@@ -25,6 +25,7 @@ feature "An user can have a cite" do
                   patient_id: @patient.id, 
                   doctor_id: @doctor.id, 
                   date_cite: "2016-12-12 10:00", 
+                  end_cite: "2016-12-12 10:20", 
                   authorized: true
       }
       post "/api/v1/cites", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
