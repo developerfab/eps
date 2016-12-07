@@ -14,7 +14,6 @@ feature "Show information doctor", type: "request" do
       expect(response.status).to eq(200)
       rta = response
 
-      #get "/api/v1/doctors", params.to_json, { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
       get "/api/v1/doctors", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
       expect(response.status).to eq(200)
     end
