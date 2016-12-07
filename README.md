@@ -95,6 +95,7 @@ http://direccion_ip/api/v1/auth/sign_in
 ## Crear cita(POST)
 
 > Se debe estar logeado para esta peticion
+
 ```
 {
   patient_id: patient_id,
@@ -111,6 +112,7 @@ http://direccion_ip/api/v1/cites
 ## Crear servicio(POST)
 
 > Se debe estar logeado para esta peticion
+
 Parametros:
 ```
 {
@@ -125,6 +127,7 @@ http://direccion_ip/api/v1/services
 ## Ver toda la lista de usuarios(GET)
 
 > Se debe estar logeado para esta peticion
+
 Parametros:
 ```
 { }
@@ -137,7 +140,9 @@ http://direccion_ip/api/v1/users
 ## Ver la información de un usuario especifico(GET)
 
 > No aplica para la información de un doctor
+
 > Se debe estar logeado para esta peticion
+
 Parametros:
 ```
 { id: Identificador del usuario(Diferente a documento) }
@@ -150,6 +155,7 @@ http://direccion_ip/api/v1/users/:id
 ## Ver la lista de doctores(GET)
 
 > Se debe estar logeado para esta peticion
+
 Parametros:
 ```
 { }
