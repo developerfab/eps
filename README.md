@@ -14,7 +14,17 @@ http://direccion_ip/api/v1/auth/
 ## Registro de usuario doctor(PETICION POST)
 Parametros:
 ```
-{ email: "doctor@email.com", password: "12345678", password_confirmation: "12345678", document: "321321", type: "doctor", speciality: "GENERAL", medical_license: "123321", schedule: "7 AM - 4 PM", worked_days: [ "LUNES", "MIERCOLES", "VIERNES"] }
+{ 
+  email: "doctor@email.com",
+  password: "12345678",
+  password_confirmation: "12345678",
+  document: "321321",
+  type: "doctor",
+  speciality: "GENERAL",
+  medical_license: "123321",
+  schedule: "7 AM - 4 PM",
+  worked_days: [ "LUNES", "MIERCOLES", "VIERNES"]
+}
 ```
 Dirección:
 ```
@@ -23,7 +33,13 @@ http://direccion_ip/api/v1/auth/
 ## Registro de usuario administrador(PETICION POST)
 Parametros:
 ```
-{ email: "doctor@email.com", password: "12345678", password_confirmation: "12345678", document: "321321", type: "admin" }
+{
+  email: "doctor@email.com",
+  password: "12345678",
+  password_confirmation: "12345678",
+  document: "321321",
+  type: "admin"
+}
 ```
 Dirección:
 ```
@@ -32,7 +48,13 @@ http://direccion_ip/api/v1/auth/
 ## Registro de usuario funcionario(PETICION POST)
 Parametros:
 ```
-{ email: "doctor@email.com", password: "12345678", password_confirmation: "12345678", document: "321321", type: "functionary" }
+{
+  email: "doctor@email.com",
+  password: "12345678",
+  password_confirmation: "12345678",
+  document: "321321",
+  type: "functionary"
+}
 ```
 Dirección:
 ```
@@ -42,7 +64,10 @@ http://direccion_ip/api/v1/auth/
 
 Parametros:
 ```
-{ email: "example@email.com", password: "password"}
+{
+  email: "example@email.com",
+  password: "password"
+}
 ```
 Dirección:
 ```
@@ -52,12 +77,12 @@ http://direccion_ip/api/v1/auth/sign_in
 ## Pedir cita(PETICION POST)
 ### Se debe estar logeado para esta peticion
 ```
-params = {
-                  patient_id: patient_id,
-                  doctor_id: doctor_id,⋅
-                  date_cite: "2016-12-12 10:00",
-                  authorized: boolean(true o false)
-      }
+{
+  patient_id: patient_id,
+  doctor_id: doctor_id,⋅
+  date_cite: "2016-12-12 10:00",
+  authorized: boolean(true o false)
+}
 ```
 Dirección:
 ```
