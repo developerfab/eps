@@ -11,11 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206230656) do
+ActiveRecord::Schema.define(version: 20161211185401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "additional_information_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.string  "blood_type",                   null: false
+    t.string  "civil_status",                 null: false
+    t.string  "occupation"
+    t.string  "live_with",       default: [],              array: true
+    t.string  "religion"
+    t.string  "companion"
+    t.string  "place_of_birth"
+    t.string  "state"
+    t.string  "municipality"
+    t.string  "city"
+    t.string  "address"
+    t.string  "cellphone"
+    t.string  "ethnicity"
+    t.string  "education_level"
+  end
+
+  add_index "additional_information_users", ["user_id"], name: "index_additional_information_users_on_user_id", using: :btree
+
+  create_table "attendants", force: :cascade do |t|
+    t.integer "user_id"
+    t.string  "document",     null: false
+    t.string  "name",         null: false
+    t.string  "last_name",    null: false
+    t.string  "address"
+    t.string  "relationship"
+    t.string  "phone",        null: false
+  end
+
+  add_index "attendants", ["user_id"], name: "index_attendants_on_user_id", using: :btree
 
   create_table "bills", force: :cascade do |t|
     t.integer  "cite_id"
@@ -84,7 +116,6 @@ ActiveRecord::Schema.define(version: 20161206230656) do
     t.string   "gender"
     t.datetime "birthdate"
     t.string   "phone"
-    t.integer  "tutor_id"
     t.integer  "cite_id"
     t.integer  "doctor_id"
   end
@@ -92,8 +123,9 @@ ActiveRecord::Schema.define(version: 20161206230656) do
   add_index "users", ["doctor_id"], name: "index_users_on_doctor_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["tutor_id"], name: "index_users_on_tutor_id", using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  add_foreign_key "additional_information_users", "users"
+  add_foreign_key "attendants", "users"
   add_foreign_key "users", "cites"
 end

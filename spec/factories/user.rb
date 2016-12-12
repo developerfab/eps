@@ -8,5 +8,6 @@ FactoryGirl.define do
     last_name "Moreno"
     phone "5555555"
     gender "MALE"
+    birthdate "1990-12-12".to_datetime
   end
 end

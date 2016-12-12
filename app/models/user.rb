@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   belongs_to :doctor
   belongs_to :cite
+  has_one :additional_information_user
+  has_one :attendants
 end

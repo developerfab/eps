@@ -2,6 +2,8 @@ class Api::UsersController < Api::SiteController
   before_action :authenticate_user!, only: [:update]
   skip_before_action :verify_authenticity_token, only: [:create]
 
+  require 'json'
+
   def index
     @users = User.all
     respond_to do |format|
@@ -15,7 +17,7 @@ class Api::UsersController < Api::SiteController
       response = {name: @user.name, last_name: @user.last_name, phone: @user.phone, document: @user.document, gender: @user.gender, birthdate: @user.birthdate, email: @user.email}
     end
     respond_to do |format|
-      format.json {render response}
+      format.json {render json: response}
     end
   end
 
@@ -59,7 +61,13 @@ class Api::UsersController < Api::SiteController
     else
       @user = Patient.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document], name: params[:name], last_name: params[:last_name], gender: params[:gender], birthdate: params[:birthdate].to_datetime, phone: params[:phone])
       if @user.persisted?
-        response = {status: "ok", message: "usuario registrado exitosamente" }
+        @additional = AdditionalInformationUser.registration(params[:aditional_information], @user)
+        if @additional
+          response = {status: "ok", message: "usuario registrado exitosamente" }
+        else
+          @user.delete
+          response = {status: "error", message: "usuario no pudo ser creado" }
+        end
       else
         response = {status: "error", message: "usuario no pudo ser creado" }
       end

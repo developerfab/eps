@@ -7,6 +7,5 @@ class AddFeaturesToUsers < ActiveRecord::Migration
      add_column :users, :gender, :string
      add_column :users, :birthdate, :datetime
      add_column :users, :phone, :string
-     add_reference :users, :tutor, index: true
   end
 end
