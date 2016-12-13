@@ -19,6 +19,8 @@ feature 'An user want a show list cites', type: "request" do
       rta = response
 
       get "/api/v1/cites", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
+      puts "**"*10
+      puts response.body
 
     end
   end

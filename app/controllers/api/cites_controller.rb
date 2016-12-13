@@ -12,7 +12,7 @@ class Api::CitesController < Api::SiteController
     @doctor = Doctor.find(params[:doctor_id])
     @authorized = params[:authorized]=="true" ? true : false
     date = params[:date_cite].to_datetime
-    @cite = Cite.create!( patient_id: @user.id, doctor_id: @doctor.id, date_cite: date, authorized: @authorized)
+    @cite = Cite.create!( patient_id: @user.id, doctor_id: @doctor.id, date_cite: date, authorized: @authorized, valuation: params[:valuation])
     if @cite.persisted?
       response = {status: "ok", message: "cita registrada exitosamente" }
     else
