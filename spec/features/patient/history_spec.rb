@@ -19,6 +19,9 @@ feature "History of an patient", type: "request" do
     params = { id: @history.id }
     get "/api/v1/histories/#{@history.id}", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
     expect(response.status).to eq(200)
+    puts "**"*10
+    puts response
+    puts "**"*10
     puts response.body
   end
 

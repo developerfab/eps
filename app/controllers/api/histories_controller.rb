@@ -18,6 +18,7 @@ class Api::HistoriesController < Api::SiteController
 
   def show
     @history = History.find(params[:id])
+    response['root']= ENV['ROOT_CDA']
     respond_to do |format|
       format.json {render layout: false}
     end
