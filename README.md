@@ -13,7 +13,7 @@ Este es un proyecto desarrollado en ruby on rails para el manejo y administracio
 
 ## Diagrama de bases de datos
 
-![alt tab](https://raw.githubusercontent.com/fab48/eps/master/diagramadb.png)
+![alt tab](https://raw.githubusercontent.com/fab48/eps/master/doc/diagramadb.png)
 
 ## Wiki
 
