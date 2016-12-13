@@ -29,6 +29,8 @@ class Api::UsersController < Api::SiteController
       response = create_functionary(params)
     elsif type == "admin"
       response = create_admin(params)
+    else
+      response = {status: "error", message: "tipo no valido, los tipos validos son: [patient, doctor, functionary, admin]" }
     end
 
     respond_to do |format|
