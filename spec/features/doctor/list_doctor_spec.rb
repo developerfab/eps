@@ -17,10 +17,6 @@ feature "Show information doctor", type: "request" do
       params = {}
       get "/api/v1/doctors", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': @rta['access-token'], 'expiry': @rta['expiry'], 'token-type': @rta['token-type'], 'uid': @rta['uid'], 'client': @rta['client'] }
       expect(response.status).to eq(200)
-      body = JSON.parse(response.body)
-      puts "*+"*10
-      puts body
-      puts "*+"*10
     end
   end
 end

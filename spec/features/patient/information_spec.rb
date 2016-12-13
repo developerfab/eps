@@ -14,7 +14,7 @@ feature "Information patient", type: "request" do
     rta = response
 
     params = {}
-    get "/api/v1/users/#{@patient.id}", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
+    get "/api/v1/patients/#{@patient.id}", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
     expect(response.status).to eq(200)
     puts response.body
     body = JSON.parse(response.body)
