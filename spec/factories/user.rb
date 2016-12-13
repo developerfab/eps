@@ -9,5 +9,6 @@ FactoryGirl.define do
     phone "5555555"
     gender "MALE"
     birthdate "1990-12-12".to_datetime
+    association :additional_information_user, factory: :additional_information_user
   end
 end

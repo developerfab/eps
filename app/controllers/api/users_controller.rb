@@ -13,11 +13,8 @@ class Api::UsersController < Api::SiteController
 
   def show
     @user = User.find(params[:id])
-    if @user
-      response = {name: @user.name, last_name: @user.last_name, phone: @user.phone, document: @user.document, gender: @user.gender, birthdate: @user.birthdate, email: @user.email}
-    end
     respond_to do |format|
-      format.json {render json: response}
+      format.json {render layout: false}
     end
   end
 
