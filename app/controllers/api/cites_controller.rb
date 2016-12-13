@@ -23,4 +23,17 @@ class Api::CitesController < Api::SiteController
     end
   end
 
+  def destroy
+    @cite = Cite.find(params[:id])
+    if @cite.update(available: false)
+      response = {status: "ok", message: "La cita ya no se encuentra disponible" }
+    else
+      response = {status: "error", message: "Error al cambiar el estado de la cita" }
+    end
+    respond_to do |format|
+      format.json {render json: response}
+    end
+    
+  end
+
 end

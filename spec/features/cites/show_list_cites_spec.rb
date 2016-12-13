@@ -11,6 +11,7 @@ feature 'An user want a show list cites', type: "request" do
 
       # create doctor
       @doctor = FactoryGirl.create(:doctor)
+      @cite = FactoryGirl.create(:cite, patient: @patient)
     end
     it "as user" do
       params = { email: @patient.email, password: "12345678" }
@@ -21,7 +22,18 @@ feature 'An user want a show list cites', type: "request" do
       get "/api/v1/cites", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
       puts "**"*10
       puts response.body
+    end
 
+    it "delete cite" do
+      params = { email: @patient.email, password: "12345678" }
+      post "/api/v1/auth/sign_in", params.to_json, { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+      expect(response.status).to eq(200)
+      rta = response
+
+      params = { id: @cite.id }
+      delete "/api/v1/cites/#{@cite.id}", params.to_json, { 'CONTENT_TYPE': 'application/json', 'ACCEPT': 'application/json', 'access-token': rta['access-token'], 'expiry': rta['expiry'], 'token-type': rta['token-type'], 'uid': rta['uid'], 'client': rta['client'] }
+      puts "**"*10
+      puts response.body
     end
   end
 end
