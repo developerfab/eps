@@ -78,9 +78,9 @@ class Api::UsersController < Api::SiteController
     if @user
       response = {status: "error", message: "usuario ya registrado previamente" }
     else
-      @user = User.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document])
+      @user = User.create!(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], document: params[:document], name: params[:name], last_name: params[:last_name], gender: params[:gender], birthdate: params[:birthdate].to_datetime, phone: params[:phone])
       if @user.persisted?
-        @doctor = Doctor.create!( speciality: params[:speciality], medical_license: params[:medical_license], schedule: params[:schedule], worked_days: params[:worked_days])
+        @doctor = Doctor.create!( speciality: params[:speciality], medical_license: params[:medical_license], schedule: params[:schedule], worked_days: params[:worked_days], user: @user)
         if @doctor.persisted?
           @user.update(doctor: @doctor)
           response = {status: "ok", message: "usuario registrado exitosamente" }
