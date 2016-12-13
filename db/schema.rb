@@ -81,10 +81,12 @@ ActiveRecord::Schema.define(version: 20161213043012) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.integer "user_id"
-    t.hstore  "valuation_format"
-    t.hstore  "evolution_format"
-    t.hstore  "format_not_pos"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.hstore   "valuation_format"
+    t.hstore   "evolution_format"
+    t.hstore   "format_not_pos"
   end
 
   add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
