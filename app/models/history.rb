@@ -1,5 +1,2 @@
-class History 
-  include Mongoid::Document
-  field :root
-  field :extension
+class History < ActiveRecord::Base
 end

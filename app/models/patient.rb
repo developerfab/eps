@@ -6,4 +6,5 @@ class Patient < User
   end
 
   has_many :cites
+  has_one :history
 end

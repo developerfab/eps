@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :cites_patients
       resources :cites_doctors
       resources :attendants
+      resources :histories
     end
   end
 end

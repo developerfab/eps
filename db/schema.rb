@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212020523) do
+ActiveRecord::Schema.define(version: 20161213043012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,13 @@ ActiveRecord::Schema.define(version: 20161212020523) do
   end
 
   create_table "histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.hstore  "valuation_format"
+    t.hstore  "evolution_format"
+    t.hstore  "format_not_pos"
   end
+
+  add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.string   "name"
@@ -130,5 +136,6 @@ ActiveRecord::Schema.define(version: 20161212020523) do
 
   add_foreign_key "additional_information_users", "users"
   add_foreign_key "attendants", "users"
+  add_foreign_key "histories", "users"
   add_foreign_key "users", "cites"
 end
