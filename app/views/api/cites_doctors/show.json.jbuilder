@@ -1,9 +1,5 @@
-json.(@information, :id, :date_cite , :end_cite)
-
 json.user @information do |information| 
+  json.(information, :id, :date_cite , :end_cite)
   json.(information.patient, :id, :name, :last_name, :document )
-  json.(information.doctor :id, :speciality, :medical_license, :schedule, :worked_days)
-  json.doctor_user information.doctor do |doctor|
-    json.(doctor.user, :id, :name, :last_name, :document, :birthdate, :gender, :phone, :type)
-  end
+  json.(information.doctor, :id, :speciality, :medical_license, :schedule, :worked_days)
 end

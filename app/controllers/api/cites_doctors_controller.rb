@@ -1,8 +1,8 @@
-class Api::CitesDoctorController < Api::SiteController
+class Api::CitesDoctorsController < Api::SiteController
   def show
     params.permit!
     @doctor= Doctor.find(params[:id])
-    @information = Cite.find_by(doctor: @doctor)
+    @information = Cite.where(doctor: @doctor)
     respond_to do |format|
       format.json {render layout: false}
     end
