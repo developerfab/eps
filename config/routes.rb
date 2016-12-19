@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks], controllers: { sessions: 'api/overrides/sessions', 'registrations': 'api/users'}
       resources :users, only: [:update, :create, :show, :index]
       resources :patients
-      resources :cites
+      resources :cites do
+        resources :payments
+      end
       resources :services
       resources :doctors
       resources :cites_patients
